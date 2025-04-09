@@ -18,17 +18,17 @@ This system is composed of multiple AI agents working together:
 
 ## 📂 Project Structure
 
-├── agents/ │
-            ├── feature_extractor.yml │ 
-            ├── illustration_generator.yml │ 
-            ├── story_generator.yml │ 
-            ├── storybook_content_crawler.yml │ 
-            └── story_and_illustration_generator_workflow.yml │ 
-├── docs/ │ ├── system_design.pdf │ 
-            └── project_documentation.pdf │ 
-├── LICENSE 
-├── .gitignore 
-└── README.md
+- ├── agents/ │
+-            ├── feature_extractor.yml │ 
+-            ├── illustration_generator.yml │ 
+-            ├── story_generator.yml │ 
+-            ├── storybook_content_crawler.yml │ 
+-            └── story_and_illustration_generator_workflow.yml │ 
+- ├── docs/ │ ├── system_design.pdf │ 
+-            └── project_documentation.pdf │ 
+- ├── LICENSE 
+- ├── .gitignore 
+- └── README.md
 
 - `agents/` — YAML definitions of individual AI agents and workflows.
 - `docs/` — System design and project documentation.
