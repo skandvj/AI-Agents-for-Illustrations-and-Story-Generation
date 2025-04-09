@@ -24,11 +24,11 @@ This system is composed of multiple AI agents working together:
 -            ├── story_generator.yml │ 
 -            ├── storybook_content_crawler.yml │ 
 -            └── story_and_illustration_generator_workflow.yml │ 
-- ├── docs/ │ ├── system_design.pdf │ 
+├── docs/ │ ├── system_design.pdf │ 
 -            └── project_documentation.pdf │ 
-- ├── LICENSE 
-- ├── .gitignore 
-- └── README.md
+ ├── LICENSE 
+ ├── .gitignore 
+ └── README.md
 
 - `agents/` — YAML definitions of individual AI agents and workflows.
 - `docs/` — System design and project documentation.
