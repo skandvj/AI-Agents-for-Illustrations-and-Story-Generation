@@ -1,0 +1,586 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Story and Illustration Generator Workflow
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.9@d9f5c9515fa6938bd5248dde897d9be311c8b0d7a89124de955b0e2aa6af91a0
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/dalle:0.0.4@c0d3625ef2fe13b8e8f6125fb4335822904d382e9c65e592f0d44dca037e3f6a
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/stability:0.0.2@b0a227423a7e79785a962c9adcd66c0455389c07a232b93e34069e1231da544b
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tavily:0.0.2@694a00b7ed6087fb212512931042dc236fb7d2833fa32ff5f708317d61551777
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/firecrawl:0.0.3@d668b3ad841e8bb27f735a8500568e44f9673156d1d4db72c304d0437bf80fd7
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 5
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1740421249952-source-1740421279014-target
+      source: '1740421249952'
+      sourceHandle: source
+      target: '1740421279014'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1740421279014-source-1740422821472-target
+      source: '1740421279014'
+      sourceHandle: source
+      target: '1740422821472'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1740427173888-source-1740434055542-target
+      source: '1740427173888'
+      sourceHandle: source
+      target: '1740434055542'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1740434055542-source-1740421249952-target
+      source: '1740434055542'
+      sourceHandle: source
+      target: '1740421249952'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1740421249952-source-1740453306995-target
+      source: '1740421249952'
+      sourceHandle: source
+      target: '1740453306995'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1740453306995-source-1740422821472-target
+      source: '1740453306995'
+      sourceHandle: source
+      target: '1740422821472'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1740380761293-source-1740453516907-target
+      source: '1740380761293'
+      sourceHandle: source
+      target: '1740453516907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1740453516907-source-1740587392604-target
+      source: '1740453516907'
+      sourceHandle: source
+      target: '1740587392604'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1740587392604-source-1740427173888-target
+      source: '1740587392604'
+      sourceHandle: source
+      target: '1740427173888'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1740421249952-source-1740587487939-target
+      source: '1740421249952'
+      sourceHandle: source
+      target: '1740587487939'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1740587487939-source-1740422821472-target
+      source: '1740587487939'
+      sourceHandle: source
+      target: '1740422821472'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: title
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Title
+      height: 90
+      id: '1740380761293'
+      position:
+        x: -644.7930647199936
+        y: -252.24402750006652
+      positionAbsolute:
+        x: -644.7930647199936
+        y: -252.24402750006652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1740434055542'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 5dfa41ac-217b-4d57-9d4b-e8b3c554bd52
+          role: system
+          text: "You are an AI feature extractor specialized in breaking down stories\
+            \ into key elements for content generation and illustration.\n\nGiven\
+            \ a book summary, extract structured story details, ensuring they include\
+            \ visual cues for illustration.\n\n**Input Summary:** \n\n**Output (JSON\
+            \ format):**\n```json\n{\n  \"Title\": \"\",\n  \"Author\": \"\",\n  \"\
+            Characters\": [\n    {\n      \"Name\": \"\",\n      \"Description\":\
+            \ \"\",\n      \"Age\": \"\",\n      \"Clothing\": \"\",\n      \"Physical\
+            \ Traits\": \"\",\n      \"Personality\": \"\"\n    }\n  ],\n  \"Setting\"\
+            : {\n    \"Time Period\": \"\",\n    \"Location\": \"\",\n    \"Visual\
+            \ Details\": \"\"\n  },\n  \"Plot Summary\": \"\",\n  \"Themes\": [\"\"\
+            ],\n  \"Illustration Cues\": {\n    \"Key Scenes\": [\n      {\n     \
+            \   \"Scene Description\": \"\",\n        \"Mood\": \"\",\n        \"\
+            Color Palette\": \"\",\n        \"Perspective\": \"\"\n      }\n    ]\n\
+            \  }\n}"
+        selected: false
+        title: Feature Extraction
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740421249952'
+      position:
+        x: -268.79650851314005
+        y: -252.24402750006652
+      positionAbsolute:
+        x: -268.79650851314005
+        y: -252.24402750006652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 7f930197-a047-4725-928b-b561f95ceaf1
+          role: system
+          text: 'Using the following structured data as inspiration, generate a compelling
+            new story that maintains the core essence of the characters, setting,
+            and themes while introducing fresh perspectives, alternate plotlines,
+            or imaginative reinterpretations. The story should be engaging, well-structured,
+            and creative, exploring unique conflicts, relationships, and world-building
+            elements.
+
+
+            Data: {{#1740421249952.text#}}
+
+
+
+
+            Ensure the new story maintains thematic depth, dynamic character interactions,
+            and immersive storytelling. Optionally, you may introduce speculative
+            elements, historical deviations, or genre reimaginings while staying true
+            to the original spirit of the narrative.'
+        selected: false
+        title: New Story
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740421279014'
+      position:
+        x: 132.64237137994348
+        y: -233.635693259297
+      positionAbsolute:
+        x: 132.64237137994348
+        y: -233.635693259297
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1740453306995'
+          - files
+          variable: Dalle
+        - value_selector:
+          - '1740421279014'
+          - text
+          variable: New Story
+        - value_selector:
+          - '1740587487939'
+          - files
+          variable: Stable Diffusion
+        selected: false
+        title: End
+        type: end
+      height: 142
+      id: '1740422821472'
+      position:
+        x: 132.64237137994348
+        y: 346.3902703114898
+      positionAbsolute:
+        x: 132.64237137994348
+        y: 346.3902703114898
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: firecrawl
+        provider_name: firecrawl
+        provider_type: builtin
+        selected: false
+        title: Crawl
+        tool_configurations:
+          allowBackwardLinks: 0
+          allowExternalLinks: 0
+          excludePaths: null
+          excludeTags: null
+          formats: null
+          headers: null
+          ignoreSitemap: 1
+          includePaths: null
+          includeTags: null
+          limit: 1
+          maxDepth: 1
+          onlyMainContent: 0
+          waitFor: null
+          wait_for_results: 1
+          webhook: null
+        tool_label: Crawl
+        tool_name: crawl
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1740587392604.result#}}'
+        type: tool
+      height: 454
+      id: '1740427173888'
+      position:
+        x: -268.79650851314005
+        y: 32.802730228145606
+      positionAbsolute:
+        x: -268.79650851314005
+        y: 32.802730228145606
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function truncateString(str, maxLength = 7500) {\n    return str.length\
+          \ > maxLength ? str.slice(0, maxLength) : str;\n}\n\nfunction main({arg1})\
+          \ {\n    return {\n        result: truncateString(arg1[0].data[0].markdown)\n\
+          \    }\n}"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: String Scraped Data
+        type: code
+        variables:
+        - value_selector:
+          - '1740427173888'
+          - json
+          variable: arg1
+      height: 54
+      id: '1740434055542'
+      position:
+        x: -268.79650851314005
+        y: -96.04022110145036
+      positionAbsolute:
+        x: -268.79650851314005
+        y: -96.04022110145036
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: dalle
+        provider_name: dalle
+        provider_type: builtin
+        selected: false
+        title: Dalle Story Illustrations
+        tool_configurations:
+          n: 1
+          quality: standard
+          size: square
+          style: vivid
+        tool_label: DALL-E 3
+        tool_name: dalle3
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: 'Generate a highly detailed and cinematic digital image inspired
+              by the following JSON data. The scene should visually depict the described
+              characters, settings, and key moments with a rich color palette, dynamic
+              lighting, and a dramatic or immersive composition. Ensure historical
+              or fantasy accuracy based on the provided time period and clothing styles.
+              Use the listed moods and perspectives to enhance the depth and storytelling
+              within the image.
+
+
+              {{#1740421249952.text#}}'
+        type: tool
+      height: 168
+      id: '1740453306995'
+      position:
+        x: 132.64237137994348
+        y: -96.04022110145036
+      positionAbsolute:
+        x: 132.64237137994348
+        y: -96.04022110145036
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: tavily
+        provider_name: tavily
+        provider_type: builtin
+        selected: false
+        title: Tavily Search
+        tool_configurations:
+          days: 3
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 5
+          search_depth: basic
+          topic: general
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1740380761293.Title#}}(full story text)'
+        type: tool
+      height: 324
+      id: '1740453516907'
+      position:
+        x: -644.7930647199936
+        y: -28.08479211245772
+      positionAbsolute:
+        x: -644.7930647199936
+        y: -28.08479211245772
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({arg1}) {\n    return {\n        result: arg1[0].results[0].url\n\
+          \    }\n}"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: GET URL
+        type: code
+        variables:
+        - value_selector:
+          - '1740453516907'
+          - json
+          variable: arg1
+      height: 54
+      id: '1740587392604'
+      position:
+        x: -644.7930647199936
+        y: 435.8452233124211
+      positionAbsolute:
+        x: -644.7930647199936
+        y: 435.8452233124211
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: stability
+        provider_name: stability
+        provider_type: builtin
+        selected: true
+        title: StableDiffusion
+        tool_configurations:
+          aspect_ratio: '16:9'
+          model: sd3-turbo
+          negative_prompt: bad art, ugly, deformed, watermark, duplicated, discontinuous
+            lines
+          seeds: 0
+        tool_label: StableDiffusion
+        tool_name: stability_text2image
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: 'You are an expert AI artist creating high-quality book illustrations.  
+
+              Generate an image based on the provided scene description.  
+
+              Ensure the illustration follows these style details:
+
+              {{#1740421249952.text#}}
+
+
+              The illustration should be visually appealing, consistent with the story’s
+              tone.'
+        type: tool
+      height: 168
+      id: '1740587487939'
+      position:
+        x: 132.64237137994348
+        y: 103.6785178802939
+      positionAbsolute:
+        x: 132.64237137994348
+        y: 103.6785178802939
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 521.3393757308875
+      y: 288.73447942504123
+      zoom: 0.6159667223413727

@@ -1,0 +1,133 @@
+app:
+  description: Generates illustrated scenes based on text descriptions.
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: agent-chat
+  name: Illustration Generator
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/stability:0.0.2@b0a227423a7e79785a962c9adcd66c0455389c07a232b93e34069e1231da544b
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/dalle:0.0.4@c0d3625ef2fe13b8e8f6125fb4335822904d382e9c65e592f0d44dca037e3f6a
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.7@11ec0b1909200f62b6ebf2cec1da981a9071d11c1ee0e2ef332ce89bcffa2544
+kind: app
+model_config:
+  agent_mode:
+    enabled: true
+    max_iteration: 5
+    prompt: null
+    strategy: function_call
+    tools:
+    - enabled: true
+      notAuthor: false
+      provider_id: langgenius/dalle/dalle
+      provider_name: langgenius/dalle/dalle
+      provider_type: builtin
+      tool_label: DALL-E 3
+      tool_name: dalle3
+      tool_parameters:
+        n: ''
+        prompt: ''
+        quality: ''
+        size: ''
+        style: ''
+    - enabled: true
+      notAuthor: false
+      provider_id: langgenius/stability/stability
+      provider_name: langgenius/stability/stability
+      provider_type: builtin
+      tool_label: StableDiffusion
+      tool_name: stability_text2image
+      tool_parameters:
+        aspect_ratio: ''
+        model: ''
+        negative_prompt: ''
+        prompt: ''
+        seeds: ''
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    reranking_enable: false
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .MPGA
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: false
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gpt-4o-mini
+    provider: langgenius/openai/openai
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: 'Generate a highly detailed and cinematic digital image inspired by
+    the following JSON data. The scene should visually depict the described characters,
+    settings, and key moments with a rich color palette, dynamic lighting, and a dramatic
+    or immersive composition. Ensure historical or fantasy accuracy based on the provided
+    time period and clothing styles. Use the listed moods and perspectives to enhance
+    the depth and storytelling within the image.
+
+
+    data: {{data}}'
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form:
+  - text-input:
+      default: ''
+      label: data
+      max_length: 48
+      required: true
+      variable: data
+version: 0.1.5
