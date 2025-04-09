@@ -69,4 +69,3 @@ This system is composed of multiple AI agents working together:
 
 <img width="352" alt="image" src="https://github.com/user-attachments/assets/f67398ee-f8a6-48c5-845f-bc875d2da24f" />
 
-]
